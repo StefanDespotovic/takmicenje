@@ -1,0 +1,313 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Montserrat';
+  margin: 0;
+  background: -webkit-gradient(linear, left top, right top, from(#757f9a), to(#d7dde8));
+  background: linear-gradient(to right, #757f9a, #d7dde8);
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  padding: 2em;
+}
+
+header .logo {
+  color: black;
+  font-weight: bold;
+  z-index: 0;
+  position: relative;
+}
+
+header .menu-btn {
+  width: 18px;
+  float: right;
+  cursor: pointer;
+}
+
+header h1 {
+  color: #2c3e50;
+}
+
+section {
+  padding: 4em;
+  margin-top: 5%;
+}
+
+section h1 {
+  font-size: 4em;
+  margin: 1em auto;
+  width: 70%;
+  color: #282936;
+}
+
+section h1::before {
+  content: ' ';
+  border-top: 5px solid #c7c7c7;
+  display: block;
+}
+
+section h2 {
+  font-size: 1.6em;
+  margin: 1em auto;
+  width: 70%;
+  color: #282936;
+  position: absolute;
+  margin-left: 14.4%;
+}
+
+nav {
+  position: absolute;
+  background: -webkit-gradient(linear, right top, left top, from(#757f9a), to(#d7dde8));
+  background: linear-gradient(to left, #757f9a, #d7dde8);
+  padding: 2em;
+  width: calc(103.9% - 4em);
+  height: calc(107.5vh - 4em);
+  display: none;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+}
+
+nav .close-btn {
+  width: 18px;
+  float: right;
+  cursor: pointer;
+  opacity: 0;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 10% auto 0 auto;
+  padding: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (33%)[3];
+      grid-template-columns: repeat(3, 33%);
+  width: 80%;
+}
+
+nav ul a {
+  color: white;
+  font-weight: bold;
+  font-size: 1.8em;
+}
+
+nav ul span {
+  color: gray;
+  display: block;
+  font-size: 1.15em;
+  margin-top: 20px;
+}
+
+nav ul li {
+  opacity: 0;
+}
+
+.show-menu {
+  display: block;
+  -webkit-animation: slide-menu 1.2s ease-in forwards;
+          animation: slide-menu 1.2s ease-in forwards;
+}
+
+.show-menu .close-btn {
+  -webkit-animation: show-x 1s 1s forwards;
+          animation: show-x 1s 1s forwards;
+}
+
+.show-menu li:nth-of-type(1) {
+  -webkit-animation: menu-item-anim .8s forwards 1s ease-in-out;
+          animation: menu-item-anim .8s forwards 1s ease-in-out;
+}
+
+.show-menu li:nth-of-type(2) {
+  -webkit-animation: menu-item-anim 1.2s forwards 1s ease-in-out;
+          animation: menu-item-anim 1.2s forwards 1s ease-in-out;
+}
+
+.show-menu li:nth-of-type(3) {
+  -webkit-animation: menu-item-anim 1.6s forwards 1s ease-in-out;
+          animation: menu-item-anim 1.6s forwards 1s ease-in-out;
+}
+
+@-webkit-keyframes slide-menu {
+  from {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  to {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@keyframes slide-menu {
+  from {
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+  }
+  to {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
+}
+
+@-webkit-keyframes show-x {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes show-x {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes menu-item-anim {
+  from {
+    -webkit-transform: translateY(60%);
+            transform: translateY(60%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes menu-item-anim {
+  from {
+    -webkit-transform: translateY(60%);
+            transform: translateY(60%);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+section {
+  opacity: 1;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+button {
+  z-index: 0;
+  position: absolute;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  margin-left: 15%;
+}
+
+button.learn-more {
+  width: 12rem;
+  height: auto;
+}
+
+button.learn-more .circle {
+  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #282936;
+  border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: '';
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #282936;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+button:hover .circle {
+  width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+  background: #fff;
+  -webkit-transform: translate(1rem, 0);
+          transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+  color: #fff;
+}
+/*# sourceMappingURL=main.css.map */

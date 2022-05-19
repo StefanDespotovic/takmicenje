@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="icon" href="images/logo.png">
+    <title>ArtBook</title>
+</head>
+<body>
+  
+    <nav id="overlay">
+        <img onclick="myFunction()" src="images/close.svg" class="close-btn" id="close-menu">
+
+        <ul>
+            <li>
+                <a href="a">About us</a>
+                <span>Everything about us!</span>
+            </li>
+            <li>
+                <a href="a">Report</a>
+                <span>Something wrong?<br> Don't worry just contact us!</span>
+            </li>
+            <li>
+                <a href="a">Contact</a>
+                <span>Get in touch with us!</span>
+            </li>
+        </ul>
+    </nav>
+
+    <header>        
+        <a href="#" id="logo" class="logo">ArtBook</a>
+        <img onclick="myFunction()"  src="images/menu.svg" class="menu-btn" id="open-menu">
+    </header>
+
+    <section>  <h2>Place to share your thoughts through the photos</h2>
+        <h1>Connecting People</h1>
+        <div id="container">
+            <button onclick="window.location.href = 'login.html'" class="learn-more">
+              <span class="circle" aria-hidden="true">
+                <span class="icon arrow"></span>
+              </span>
+              <span class="button-text">Sign in</span>
+            </button>
+          </div>
+        
+    </section>
+
+    
+         <script>
+
+            var overlay = document.getElementById('overlay');
+            var closeMenu = document.getElementById('close-menu');
+
+            document.getElementById('open-menu').addEventListener('click', function() {
+                overlay.classList.add('show-menu');
+            });
+
+            document.getElementById('close-menu').addEventListener('click', function() {
+                overlay.classList.remove('show-menu');
+            });
+           /* document.getElementById('close-menu').addEventListener('click', function() {
+                overlay.classList.add('open-menu');
+            });
+            document.getElementById('close-menu').addEventListener('click', function() {
+                overlay.classList.remove('open-menu');
+            }); */
+
+            
+//show-hide button
+            $('#close-menu').on('click', function() {
+    if ($('section').css('opacity') == 0) {
+        $('section').css('opacity', 1);
+    }
+    else {
+        $('section').css('opacity', 0);
+    }
+});
+$('#open-menu').on('click', function() {
+    if ($('section').css('opacity') == 0) {
+        $('section').css('opacity', 1);
+    }
+    else {
+        $('section').css('opacity', 0);
+    }
+});
+
+
+         </script>
+     
+</body>
+</html>

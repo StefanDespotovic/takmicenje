@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <title>login</title>
+    <style>
+/*disable scrolling*/
+html, body {
+    margin: 0; 
+    height: 100%; 
+    overflow: hidden
+}
+
+        @keyframes slide-menu {
+  from {
+    transform: translateY(50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+section {  
+    animation-duration: 1.3s; /* the duration of the animation */
+    animation-timing-function: ease-out; /* how the animation will behave */
+    animation-delay: 0s; /* how long to delay the animation from starting */
+    animation-iteration-count: 1; /* how many times the animation will play */
+    animation-name: slide-menu; /* the name of the animation we defined above */
+}
+
+    </style>
+
+</head>
+    <body>
+        <header>        
+            <a href="#" id="logo" class="logo">ArtBook</a>
+            <!--    <img onclick="myFunction()"  src="images/menu.svg" class="menu-btn" id="open-menu">    -->
+        </header>
+        
+        <section>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your email for registration</span>
+			<input type="text" placeholder="Name" />
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<button onclick="ErrorMessage()">Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Sign in</h1>
+			<div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your account</span>
+			<input name="email" type="email" placeholder="Email" />
+			<input name="pswrd" type="password" placeholder="Password" />
+			<a href="#">Forgot your password?</a>
+			<button onclick="check(this.form)">Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+
+<script>
+    const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+});
+
+/*error message*/
+function ErrorMessage() {
+  alert("This function is not available at the moment, it is going to work in next update!");
+}
+
+/*hardcoded login form*/
+function check(form)/*function to check email & password*/
+{
+ /*the following code checkes whether the entered email and password are matching*/
+ if(form.email.value == "stefan@mail.com" && form.pswrd.value == "stefan")
+  {
+    window.open('welcome.html');   /*opens the target page while Id and password matches*/  
+  }
+ else
+ {
+   alert("Error Password or Email")   /*displays error message*/
+  }
+}
+
+</script>
+</body>
+</html>
