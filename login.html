@@ -7,6 +7,7 @@
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+	<script src="javascript/signup.js"></script>
     <title>Takmicenje login</title>
     <style>
 /*disable scrolling*/
@@ -44,7 +45,7 @@ section {
         <section>
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
+		<form action="user_profile.html" onsubmit="return authenticate()">
 			<h1>Create Account</h1>
 			<h5>Welcome, please take your time to fill out your new account</h5><!--
 			<div class="social-container">
@@ -53,21 +54,21 @@ section {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span>-->
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<!--only for competitors (another for judge, reporter)-->
+			<input id="name" type="text" placeholder="Name" />
+			<input id="mail" type="email" placeholder="Email" />
+			<input id="psw" type="password" placeholder="Password" />
+			<!--only for competitors (another for judge, reporter)
 			<select name="role" id="role">
 				<!--<option value="-">Chose</option>
-   			    <option value="judge">Judge</option>-->
-    			<option value="competitor">Competitor</option>
-  			</select>
+   			    <option value="judge">Judge</option>
+    			<option name="opt" value="competitor">Competitor</option>
+  			</select>-->
 			<a href="terms.html">By clicking submit you are accepting all <b>terms and the conditions!</b></a>
-			<button onclick="ErrorMessage()">Sign Up</button>
+			<button type="submit">Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="#">
+		<form action="user_profile1.html" onsubmit="return authenticate2()">
 			<h1>Sign in</h1>
 			<h5>Welcome, please sign in to access your account</h5><!--
 			<div class="social-container">
@@ -76,10 +77,10 @@ section {
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span>-->
-			<input name="email" type="email" placeholder="Email" />
-			<input name="pswrd" type="password" placeholder="Password" />
+			<input id="email" type="email" placeholder="Email" />
+			<input id="pswrd" type="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
-			<button onclick="check(this.form)">Sign In</button>
+			<button type="submit">Sign In</button>
 		</form>
 	</div>
 	<div class="overlay-container">
@@ -113,25 +114,21 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
 
-/*error message*/
-function ErrorMessage() {
-  alert("This function is not available at the moment, it is going to work in next update!");
-}
-
-/*hardcoded login form*/
-function check(form)/*function to check email & password*/
-{
- /*the following code checkes whether the entered email and password are matching*/
- if(form.email.value == "stefan@mail.com" && form.pswrd.value == "stefan")
-  {
-    window.open('welcome.html');   /*opens the target page while Id and password matches*/  
+/*sign in function*/
+function authenticate2(){
+    var authorised;
+    
+    var email = document.getElementById("email").value;
+    var pswrd = document.getElementById("pswrd").value;
+    
+    if(email == "stefan@mail.com" && pswrd == "stefan"){
+      authorised = true;
+    }else{
+      authorised = false;
+      alert("Sorry, password is incorrect.");
+    }
+    return authorised;
   }
- else
- {
-   alert("Error Password or Email")   /*displays error message*/
-  }
-}
-
 </script>
 </body>
 </html>
