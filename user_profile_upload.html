@@ -27,7 +27,6 @@ html, body {
 	min-height: 480px;
 }
 
-
     </style>
 
 </head>
@@ -36,22 +35,18 @@ html, body {
             <a href="index.html" id="logo" class="logo">ArtBook</a>
         </header>
         
-        <section>
+<section>
 
 	<div class="form-container sign-in-container">
-		<form action="#">
+    <form action="upload.php" method="post" enctype="multipart/form-data">
 			<h1>Sign in</h1>
-			<h5>Welcome judge, please sign in to access your account</h5><!--
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your account</span>-->
+			<h5>Welcome judge, please sign in to access your account</h5>
+        Select image to upload:
+        <input type="file" name="fileToUpload" id="fileToUpload">
 			<input name="email" type="email" placeholder="Email" />
 			<input name="pswrd" type="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
-			<button onclick="check(this.form)">Sign In</button>
+      <input type="submit" value="Upload Image" name="submit">
 		</form>
 	</div>
 			
@@ -61,25 +56,6 @@ html, body {
 
 <script>
     
-
-/*error message*/
-function ErrorMessage() {
-  alert("This function is not available at the moment, it is going to work in next update!");
-}
-
-/*hardcoded login form*/
-function check(form)/*function to check email & password*/
-{
- /*the following code checkes whether the entered email and password are matching*/
- if(form.email.value == "stefan@mail.com" && form.pswrd.value == "stefan")
-  {
-    window.open('welcome.html');   /*opens the target page while Id and password matches*/  
-  }
- else
- {
-   alert("Error Password or Email")   /*displays error message*/
-  }
-}
 
 </script>
 </body>
