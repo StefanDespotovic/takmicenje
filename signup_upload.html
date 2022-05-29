@@ -39,12 +39,16 @@ html, body {
 
 	<div class="form-container sign-in-container">
         <form action="upload.php" method="post" enctype="multipart/form-data">     
-			<h1>Sign in</h1>
-			<h5>Welcome judge, please sign in to access your account</h5>
-        <input id="dname" type="text" placeholder="Dog name" />
-        <input id="breed" type="text" placeholder="Breed" />
-        <input id="year" type="number" placeholder="Years" />  
+			<h1>Create Account</h1>
+			<h5>Welcome, please take your time to fill out your new account</h5>
+        <input id="name" name='name' type="text" placeholder="Name" />
+		<input id="mail" name='mail' type="email" placeholder="Email" />
+		<input id="pass" name='file' type="password" placeholder="Password" />
+        <input id="dname" name='dname' type="text" placeholder="Dog name" />
+        <input id="breed" name='breed' type="text" placeholder="Breed" />
+        <input id="year" name='year' type="number" placeholder="Years" />  
         <input type='file' name='file' />
+        <a href="terms.html">By clicking submit you are accepting all <b>terms and the conditions!</b></a>
         <button type="submit" value="Upload" name="submit">Upload</button>
 		</form>
 	</div>
