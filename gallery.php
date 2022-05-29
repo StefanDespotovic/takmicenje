@@ -1,6 +1,18 @@
+<?php
+// Include the database configuration file
+include 'config.php';
+
+// Get images from the database
+$query = $db->query("SELECT * FROM images ORDER BY uploaded_on DESC");
+
+if($query->num_rows > 0){
+    while($row = $query->fetch_assoc()){
+        $imageURL = 'uploads/'.$row["file_name"];
+      /*to write text from db*/  $text = $row["file_name"];
+?> 
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +22,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="icon" href="images/logo.png">
     <title>Takmicenje</title>
+    <style>
+        #slika{
+            display: inline;
+            repeat:no-repeat;
+        }
+    </style>
 </head>
 <body>
   
@@ -55,17 +73,12 @@
 					<img src="https://cdn.dribbble.com/users/545884/screenshots/3695553/news.png" alt="">
 				</a>
 			</li>
-			<li>
-				<a class="image" href="#item01">
-					<img src="https://cdn.dribbble.com/users/545884/screenshots/4360101/liberosis_--_12.png" alt="">
-				</a>
-			</li>
-			<li>
-				<a class="image" href="#item01">
-					<img src="https://cdn.dribbble.com/users/545884/screenshots/3148799/technical-book.jpg" alt="">
-				</a>
-			</li>
-           
+			
+           <li>
+               <a class="image" href="#item01">
+            <img id="slika" src="<?php echo $imageURL; ?>" alt="" />
+        </a>
+           </li>
 
                
 		</ul>
@@ -125,3 +138,7 @@
 
 </body>
 </html>
+<?php }
+}else{ ?>
+    <p>No image(s) found...</p>
+<?php } ?>
