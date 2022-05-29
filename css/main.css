@@ -165,4 +165,24 @@ button:hover .circle .icon.arrow {
 button:hover .button-text {
   color: #fff;
 }
+
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding: 0.2em;
+    background-color: #69829a;
+    text-align: center;
+    justify-content:center;
+  }
+
+
+.social-footer-icons{
+   margin-right: 5%;
+}
+
+
 /*# sourceMappingURL=main.css.map */
