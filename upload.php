@@ -10,13 +10,19 @@ $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 
 if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
+     $name = $_POST['name'];
+     $email = $_POST['mail'];
+     $pass = $_POST['pass'];
+     $dname = $_POST['dname'];
+     $breed = $_POST['breed'];
+     $year = $_POST['year'];
     // Allow certain file formats
     $allowTypes = array('jpg','png','jpeg','gif','pdf');
     if(in_array($fileType, $allowTypes)){
         // Upload file to server
         if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
             // Insert image file name into database
-            $insert = $db->query("INSERT into images (file_name, uploaded_on) VALUES ('".$fileName."', NOW())");
+            $insert = $db->query("INSERT into imagess (name, email, password, dog_name, breed, year,file_name, uploaded_on) VALUES ('$name','$email','$pass','$dname','$breed','$year','".$fileName."', NOW())");
             if($insert){
                 $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
             }else{
@@ -34,4 +40,7 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 
 // Display status message
 echo $statusMsg;
+  
+
+
 ?>
