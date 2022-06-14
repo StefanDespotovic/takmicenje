@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="css/login.css">
-    <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <title>Takmicenje login</title>
+    <title>New competitor create account</title>
     <style>
 /*disable scrolling*/
 html, body {
@@ -16,6 +15,10 @@ html, body {
     height: 100%; 
     overflow: hidden
 }
+.logo {
+    padding: 0em;
+}
+
 .sign-in-container {
     background-color: #fff;
 	border-radius: 10px;
@@ -46,24 +49,19 @@ section {
 form{
     padding:15px 50px;
 }
+@media only screen and (max-width: 1100px) {
+.logo {
+    right: 76.5%;
+}
+}
 
     </style>
 
 </head>
     <body>
         <header>        
-            <a href="index.html" id="logo" class="logo">ArtBook</a>
+            <a href="index.html" id="logo" class="logo">BEST-DOG</a>
         </header>
-          <div class="navbar">
-  <a href="index.html">index</a>
-  <a href="login_judge.html">judge</a>
-  <a href="login.html">login</a>
-  <a href="main_page.html">main page</a>
-  <a href="news.html">news</a>
-  <a href="old_results.html">old results</a>
-  <a href="singup_upload.html">signup upload</a>
-  <a href="user_profile.html">user profile</a>
-</div>
 
 <section>
 
@@ -77,7 +75,7 @@ form{
         <input id="dname" name='dname' type="text" placeholder="Dog name" required/>
         <input id="breed" name='breed' type="text" placeholder="Breed" required/>
         <input id="year" name='year' type="number" placeholder="Years" required/>  
-        <input type='file' name='file' required/>
+        <input type='file' class="upload" name='file' required/>
         <a href="terms.html">By clicking submit you are accepting all <b>terms and the conditions!</b></a>
         <button type="submit" value="Upload" name="submit">Upload</button>
 		</form>
@@ -86,10 +84,5 @@ form{
 
 </section>
 
-
-<script>
-
-
-</script>
 </body>
 </html>

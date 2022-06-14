@@ -1,12 +1,46 @@
-<html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, intial-scale=1.0"/>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="css/main.css">
-<title>Gallery</title>
-<style>
+<?php session_start(); ?>
+<?php
+include 'config.php';
+if(!isset($_SESSION['id'])){ //if login in session is not set
+    header("Location: login_judge.php");
+}
+
+
+$con = mysqli_connect('localhost', 'id18955784_stefanova', '32Cmfoan(Yfe', 'id18955784_stefan');
+	if (isset($_POST['liked'])) {
+		$postid = $_POST['postid'];
+		$result = mysqli_query($con, "SELECT * FROM images WHERE id=$postid");
+		$row = mysqli_fetch_array($result);
+		$n = $row['likes'];
+
+		mysqli_query($con, "INSERT INTO likes (userid, postid) VALUES ('".$_SESSION['id']."', $postid)");
+		mysqli_query($con, "UPDATE images SET likes=$n+1 WHERE id=$postid");
+
+		echo $n+1;
+		exit();
+	}
+if (isset($_POST['unliked'])) {
+		$postid = $_POST['postid'];
+		$result = mysqli_query($con, "SELECT * FROM images WHERE id=$postid");
+		$row = mysqli_fetch_array($result);
+		$n = $row['likes'];
+
+		mysqli_query($con, "DELETE FROM likes WHERE postid=$postid AND userid='".$_SESSION['id']."'");
+		mysqli_query($con, "UPDATE images SET likes=$n-1 WHERE id=$postid");
+		
+		echo $n-1;
+		exit();
+	}
+?>
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, intial-scale=1.0"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="css/main.css">
+	<title>Gallery vote</title>
+	<style>
     .container main
     {
 		    height:100%;
@@ -193,13 +227,14 @@
 	padding-bottom: 1em;
     position:relative;
 }
-</style>
-</head>
-<body>
+	</style>
+	</head>
+
+	<body>
         <header>        
             <a href="index.html" id="logo" class="logo">BEST-DOG</a>
         </header>
-<nav id="main-menu">
+        <nav id="main-menu">
  
 </nav>
 
@@ -219,38 +254,50 @@
 
 
 <div class="overlay"></div>
-        
-	<div class="container main">
-		<h3>All competitors and their informations</h3>
-		<div class="img-box">
-		    <!-- for image and text, including db connection file, checking if db exist and 
-		    getting requested files from db -->
-<?php
-	
-	include "config.php";
+<div class="container main">
+    <h3>All competitors and their informations</h3>
+    <div class="img-box">
+        <!-- for image and text, including db connection file, checking if db exist and 
+			    getting requested files from db -->
+        <?php
 
-        
-	$result = mysqli_connect($dbHost,$dbUsername,$dbPassword) or die("Could not connect to database." .mysqli_error());
-	mysqli_select_db($result,$dbName) or die("Could not select the databse." .mysqli_error());
-	$image_query = mysqli_query($result,"select file_name,dog_name,breed,year from images");
-	while($rows = mysqli_fetch_array($image_query))
-	{
-		$dog_name = $rows['dog_name'];
-		$breed = $rows['breed'];
-		$year = $rows['year'];
-        $imageURL = 'uploads/'.$rows["file_name"];
-	?>
-	
-	<div class="img-block">
-	<img src="<?php echo $imageURL; ?>" alt="" title="<?php echo $dog_name; ?>" class="img-responsive" />
-	<p style="margin-top:10px;"><strong>Dog name:&nbsp</strong><?php echo $dog_name?>
+        include "config.php";
+
+
+        $result = mysqli_connect($dbHost,$dbUsername,$dbPassword) or die("Could not connect to database." .mysqli_error());
+        mysqli_select_db($result,$dbName) or die("Could not select the databse." .mysqli_error());
+        $image_query = mysqli_query($result,"select id,file_name,dog_name,breed,year from images");
+        while($rows = mysqli_fetch_array($image_query))
+        {   $dog_name = $rows['dog_name'];
+            $breed = $rows['breed'];
+            $year = $rows['year'];
+            $imageURL = 'uploads/'.$rows["file_name"];
+            $imageId = $rows['id'];
+            ?>
+            <div class="img-block">
+                	<img src="<?php echo $imageURL; ?>" alt="" title="<?php echo $dog_name; ?>" class="img-responsive" />
+	<p><strong>Dog name:&nbsp</strong><?php echo $dog_name?>
 	<strong>&nbspDog years:&nbsp</strong><?php echo $year?>
 	<strong>&nbspDog breed:&nbsp</strong><?php echo $breed?></strong></p>
-	</div>
-	<?php
-	}
-?>
-	</div>	</div>
+                <!-- for likes -->
+                    <?php
+
+                    $results=mysqli_query($result,"SELECT * FROM likes where userid='".$_SESSION['id']."' and postid=".$imageId."");
+                    if (mysqli_num_rows($results)==1) { ?>
+                        <!-- user already liked the post-->
+                        <p><a href="" class="unlike" id="<?php echo $imageId; ?>">unlike</a></p>
+                    <?php } else {?>
+                        <!-- user has not yet liked post-->
+                        <p><a href="" class="like" id="<?php echo $imageId; ?>">like</a></p>
+                    <?php } ?>
+
+                
+
+            </div>
+            <?php
+        }
+        ?>
+        </div></div>
  <footer class="stick-footer">
        
         <div class="social-footer-icons">
@@ -265,5 +312,44 @@
           <a href="privacy.html">Privacy Policy</a>
           </div>
       </footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.like').click(function(){
+            var postid = $(this).attr('id');
+            $.ajax({
+                url: 'judge_gallery.php',
+                type: 'post',
+                async: false,
+                data:{
+                    'liked': 1,
+                    'postid': postid
+                },
+                success:function(){
+                    
+                }
+            });
+        });
+        
+        $('.unlike').click(function(){
+            var postid = $(this).attr('id');
+            $.ajax({
+                url: 'judge_gallery.php',
+                type: 'post',
+                async: false,
+                data:{
+                    'unliked': 1,
+                    'postid': postid
+                },
+                success:function(){
+                    
+                }
+            });
+        });
+        
+        
+    });
+</script>
 	</body>
 	</html>
