@@ -116,36 +116,16 @@ input {
 	<div class="form-container sign-up-container">
 		<form action="signup_upload.html">
 			<h1>Create Account</h1>
-			<h5>Welcome, please take your time to fill out your new account</h5><!--
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your email for registration</span>
-			<input id="name" type="text" placeholder="Name" />
-			<input id="mail" type="email" placeholder="Email" />
-			<input id="psw" type="password" placeholder="Password" />
-			only for competitors (another for judge, reporter)
-			<select name="role" id="role">
-				<option value="-">Chose</option>
-   			    <option value="judge">Judge</option>
-    			<option name="opt" value="competitor">Competitor</option>
-  			</select>
-			<a href="terms.html">By clicking submit you are accepting all <b>terms and the conditions!</b></a>-->
+			<h5>Welcome, please take your time to fill out your new account</h5>
+
 			<button type="submit">Sign Up</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
     	 <form method="post" action="">
 			<h1>Sign in</h1>
-			<h5>Welcome, please sign in to access your account</h5><!--
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your account</span>-->
+			<h5>Welcome, please sign in to access your account</h5>
+	
 			<input id="mail" name='mail' type="email" placeholder="Email" required/>
 		<input id="pass" name='pass' type="password" placeholder="Password" required/>
 			<a href="#">Forgot your password?</a>
