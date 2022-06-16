@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PaSha cosmetic</title>
+    <link rel="icon" href="images/logo.png">
+    <title>Results</title>
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet">
@@ -13,16 +14,17 @@
      .company{
     width: 100%;
     height: 35em;
-    background: url("images/header.jpg") center no-repeat;
+    background: url("images/header_r.jpeg") center no-repeat;
     background-size: cover;
     position: relative;
 }
 .company1{
     width: 100%;
     height: 35em;
-    background: url("images/winner.png") center no-repeat;
+    background: url("images/header_r.jpg") center no-repeat;
     background-size: cover;
     position: relative;
+    background-color:white;
 }
         .title-heading {
     height: 100px;
@@ -30,30 +32,146 @@
         @media only screen and (max-width: 600px){
 .title-heading {
     height: 196px;
+}
+
+}
+/*Hamburger menu */
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, height .35s;
+    overflow: hidden;
+    background: black;
+    z-index: -1;
+}
+
+#hamburger-input{
+  display: none;
+}
+#hamburger-menu {
+    position: fixed;
+    top: 4%;
+    left: 90%;
+    width: 30px;
+    height: 30px;
+    display: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    z-index:1;
+    background: linear-gradient(
+      to bottom, 
+      #757f9a, #757f9a 20%, 
+      transparent, transparent, 
+      #757f9a 40%, #757f9a 60%, 
+      transparent, transparent, 
+      #757f9a 80%, #757f9a 100%
+    );
+}
+
+#hamburger-menu #sidebar-menu {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    margin-left: 90%;
+    left: 110%;
+    width: 10%;
+    height: 100%;
+    background-color: #757f9a;
+    transition: 0.3s;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+#hamburger-menu ul {
+  padding-left: 0px;
+}
+
+#hamburger-menu li {
+  list-style-type: none;
+  line-height: 3rem;
+}
+
+#hamburger-menu a {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+#hamburger-menu a:hover {
+  text-decoration: underline;
+}
+
+#hamburger-input:checked + #hamburger-menu #sidebar-menu {
+    visibility: visible;
+    left: 0;
+}
+#hamburger-input:checked ~ .overlay{
+   visibility: visible;
+  opacity: 0.4;
+}
+  #main-menu {
+    display: none;
+  }
+  #hamburger-menu {
+    display: inline;
+  }
+
+
+@media only screen and (max-width: 600px) {
+		#hamburger-menu #sidebar-menu {
+            margin-left:60%;
+            width: 40%;
+}
+}
+
+/*Responsive*/
+@media only screen and (max-width: 767px) {
+		#hamburger-menu #sidebar-menu {
+            margin-left:60%;
+            width: 40%;
+}
+}
+
+
+@media only screen and (max-width: 1100px) {
+    #hamburger-menu #sidebar-menu {
+            margin-left:60%;
+            width: 40%;
+
 }}
+        
     </style>
 </head>
 <body>
-	<header>
-        <div class="container">
-            <nav>
-               <div class="nav-brand">
-                </div>
-                <ul class="nav-list">                 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link current">Početna</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="skola.html" class="nav-link">škola za pse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Kontakt</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-	<main>
+        <!-- Hamburger menu-->       
+<nav id="main-menu">
+ 
+</nav>
+
+<input type="checkbox" id="hamburger-input" class="burger-shower" />
+<label id="hamburger-menu" for="hamburger-input">
+  <nav id="sidebar-menu">
+    <ul>
+      <li><a href="index.html">Main page</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="gallery.php">Gallery</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="login.php">Login</a></li>
+      <li><a href="login_judge.php">Judges login</a></li>
+    </ul>
+  </nav>
+</label>
+
+
+<div class="overlay"></div>
+ 	<main>
         <section class="company1">
             <div class="container">
                 <div class="main-message">
@@ -69,52 +187,26 @@
             <div class="container">
                
                 <div class="activites-grid">
-                    <div class="activites-grid-item">                      
-                            <h1>Gold place</h1>
-                            <p>Linija šampona za oatromaterapiju Nature Specialties dodatni je
-							korak u ugađanju našim dlakavim prijateljma. Aromaterapija u kombinaciji
-							s formulom za čišćenje koja ima antibakterijska i antifungalna svojstva.
-							Vraća sjaj i vraća zdravlje kaputu kućnih ljubimaca, istovremeno ublažavajući stres.
-							Sadrži: netoksičnu, biorazgradivu mješavinu u vlasničkoj bazi blage šampona, 
-							aloe vere, pantenola, vitamina A, D i  E,mirisa. pH uravnotežen</p>                        
+                    <div class="activites-grid-item2">                      
+                            <h1>First place</h1>
+                            <p>Dog name: Pasha  <br>Dog years: 9  <br>Dog breed: Maltese</p>
+                            <img src="uploads/maltese.jpg" style="width:300px;height:210px;">
                     </div>             
-                <div class="activites-grid-item">                
-                    <h1>Silver place</h1>
-                    <p>Ogrlica je natopljena prirodnom mješavinom dobivenom iz eteričnih ulja bilja i drveća.
-					Sastav: ulje geranija (Pelargonium Graveolens) 1%, ulje klinčića (Eugenia Caryophyllata) 1%,
-					ulje limunske trave (Cymbopogon Flexuosus) 1%, ulje citronele (Cymbopogon Nardus) 0,5%, ulje
-					ružmarina (Rosmarius officinalis) 0,5%, ricinusovo ulje (Ricinus Communis (castor) 1 %.
-					Tretman sprječava infestaciju buhama tijekom mjesec dana. </p>               
+                <div class="activites-grid-item2">                
+                    <h1>Second place</h1>
+                    <p>Dog name: Oscar  <br>Dog years: 6  <br>Dog breed: Bernese</p>
+                    <img src="uploads/bernese.jpg" style="width:300px;height:210px;">
                 </div>    
-                <div class="activites-grid-item">
-                        <h1>Bronze place</h1>
-                        <p>Puder za sprječavanje mrlja od suza. Za sve pasmine: Formula protiv mrlja od suza bez antibiotika koja daje bistru dlaku
-						za sve pasmine. Značajno: Ne sadrži boju za hranu, pšenicu, kukuruz ili soju koje bi 
-						mogle imati negativne učinke na vašeg ljubimca. Sastav: prašak brusnice, korijen grožđa 
-						Oregon i korijen bijelog šljeza. Ukus: Aromatiziran 100% liofiliziranom pilećom jetrom
-						Formula: s prirodnim antioksidansima. Vašem psu daje neodoljiv izgled. </p>
+                <div class="activites-grid-item2">
+                        <h1>Third place</h1>
+                        <p>Dog name: Teddy  <br>Dog years: 5  <br>Dog breed: Dachshund </p>
+                        <img src="uploads/dachshund.jpg" style="width:300px;height:210px;">
                     </div>    
                 </div>
             </div>
 			
-		        </section><br>	
-				
-	
-		<div class="grid-container1">
-	  <div class="grid-item1"><img src="images/a.jpg" style="width:300px;height:210px;"></div>
-	  <div class="grid-item1"><img src="images/b.jpg" style="width:300px;height:210px;"></div>
-	  <div class="grid-item1"><img src="images/c.jpg" style="width:300px;height:210px;"></div>  
-</div>	<br>
+		        </section>
 
-       
-
-        <section class="begin-adveture">
-            <div class="container5">  
-                <div style="height: 50px;" class="title-heading2">                  
-                    <h1>neka njihove avanture započnu sa nama</h1>                   
-                </div>             
-            </div>
-        </section>
     </main>	
 	<br>
     <footer>
@@ -127,7 +219,7 @@
             <a href="https://twitter.com/Best__dog"><img src="images/twitter.png" style="width:42px;height:42px;"></a>
           </ul>
           <p>Coppyright © 2022 Best-dog, Inc.</p>
-          <a href="privacy.html">Legal Stuff </a><br>
+          <a href="terms.html">Legal Stuff </a><br>
           <a href="privacy.html">Privacy Policy</a>
           </div>
       </footer>

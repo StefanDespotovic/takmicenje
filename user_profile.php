@@ -1,6 +1,6 @@
 <?php session_start(); 
 include 'config.php';
-if(!isset($_SESSION['id'])){ //if login in session is not set
+if(!isset($_SESSION['id'])){ // cheking if user is logged in
     header("Location: login.php");
 } ?>
 <!DOCTYPE html>
@@ -192,7 +192,7 @@ p{
 <label id="hamburger-menu" for="hamburger-input">
   <nav id="sidebar-menu">
     <ul>
-      <li><a href="main.html">Main page</a></li>
+      <li><a href="index.html">Main page</a></li>
       <li><a href="news.html">News</a></li>
       <li><a href="login.php">Login</a></li>
       <li><a href="login_judge.php">Login judges</a></li>
@@ -202,23 +202,17 @@ p{
   </nav>
 </label>
 
-
 <div class="overlay"></div>
         <section>
-
- 
-
-	<div class="form-container sign-in-container">
-	 
-
+	<div class="form-container sign-in-container"
 <?php
-
+//getting data from db with user id that is logged
  $sql="SELECT * FROM images where id = '".$_SESSION['id']."'";
  $result = $db->query($sql);
 ?>
  <?php
 
-
+//display data from db from user id that is logged
 $user = $_SESSION['name'];
 
 echo "<h3>Welcome $user</h3>";

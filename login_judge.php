@@ -1,5 +1,6 @@
 <?php session_start(); ?>
-<?php
+<?php 
+//getting info about judge from db to check if it exist
 include 'config.php';
 if (isset($_POST['signin'])) {
   $email = $_POST['mail'];
@@ -28,7 +29,7 @@ if (isset($_POST['signin'])) {
 }
   
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

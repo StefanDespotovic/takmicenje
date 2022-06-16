@@ -1,18 +1,18 @@
 <?php session_start(); ?>
 <?php
 include 'config.php';
-if(!isset($_SESSION['id'])){ //if login in session is not set
+if(!isset($_SESSION['id'])){            //if not loged in session send to login page 
     header("Location: login_judge.php");
 }
 
-
+//connecting to db and getting likes to display like or unlike button
 $con = mysqli_connect('localhost', 'id18955784_stefanova', '32Cmfoan(Yfe', 'id18955784_stefan');
 	if (isset($_POST['liked'])) {
 		$postid = $_POST['postid'];
 		$result = mysqli_query($con, "SELECT * FROM images WHERE id=$postid");
 		$row = mysqli_fetch_array($result);
 		$n = $row['likes'];
-
+//adding like to db
 		mysqli_query($con, "INSERT INTO likes (userid, postid) VALUES ('".$_SESSION['id']."', $postid)");
 		mysqli_query($con, "UPDATE images SET likes=$n+1 WHERE id=$postid");
 
@@ -24,7 +24,7 @@ if (isset($_POST['unliked'])) {
 		$result = mysqli_query($con, "SELECT * FROM images WHERE id=$postid");
 		$row = mysqli_fetch_array($result);
 		$n = $row['likes'];
-
+//deleting like from db
 		mysqli_query($con, "DELETE FROM likes WHERE postid=$postid AND userid='".$_SESSION['id']."'");
 		mysqli_query($con, "UPDATE images SET likes=$n-1 WHERE id=$postid");
 		
@@ -32,11 +32,12 @@ if (isset($_POST['unliked'])) {
 		exit();
 	}
 ?>
-	<!DOCTYPE html>
-	<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, intial-scale=1.0"/>
+	<link rel="icon" href="images/logo.png">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	 <link rel="stylesheet" href="css/main.css">
 	<title>Gallery vote</title>
@@ -237,12 +238,12 @@ if (isset($_POST['unliked'])) {
         <nav id="main-menu">
  
 </nav>
-
+<!-- Hamburger menu-->    
 <input type="checkbox" id="hamburger-input" class="burger-shower" />
 <label id="hamburger-menu" for="hamburger-input">
   <nav id="sidebar-menu">
     <ul>
-      <li><a href="main.html">Main page</a></li>
+      <li><a href="index.html">Main page</a></li>
       <li><a href="news.html">News</a></li>
       <li><a href="gallery.php">Gallery</a></li>
       <li><a href="results.html">Results</a></li>
@@ -252,7 +253,7 @@ if (isset($_POST['unliked'])) {
   </nav>
 </label>
 
-
+<!-- displaying competitors images and informations-->    
 <div class="overlay"></div>
 <div class="container main">
     <h3>All competitors and their informations</h3>
@@ -281,7 +282,7 @@ if (isset($_POST['unliked'])) {
 	<strong>&nbspDog breed:&nbsp</strong><?php echo $breed?></strong></p>
                 <!-- for likes -->
                     <?php
-
+//displaying like and unlike button
                     $results=mysqli_query($result,"SELECT * FROM likes where userid='".$_SESSION['id']."' and postid=".$imageId."");
                     if (mysqli_num_rows($results)==1) { ?>
                         <!-- user already liked the post-->
@@ -314,7 +315,7 @@ if (isset($_POST['unliked'])) {
       </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
+<script> 
     $(document).ready(function(){
         $('.like').click(function(){
             var postid = $(this).attr('id');

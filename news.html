@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>PaSha cosmetic</title>
+    <link rel="icon" href="images/logo.png">
+    <title>News page</title>
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet">
@@ -31,28 +32,162 @@
 .title-heading {
     height: 196px;
 }}
+/*Hamburger menu */
+
+.overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .35s, visibility .35s, height .35s;
+    overflow: hidden;
+    background: black;
+    z-index: -1;
+}
+
+#hamburger-input{
+  display: none;
+}
+#hamburger-menu {
+    position: fixed;
+    top: 4%;
+    left: 90%;
+    width: 30px;
+    height: 30px;
+    display: none;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    z-index:1;
+    background: linear-gradient(
+      to bottom, 
+      #757f9a, #757f9a 20%, 
+      transparent, transparent, 
+      #757f9a 40%, #757f9a 60%, 
+      transparent, transparent, 
+      #757f9a 80%, #757f9a 100%
+    );
+}
+
+#hamburger-menu #sidebar-menu {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    margin-left: 90%;
+    left: 110%;
+    width: 10%;
+    height: 100%;
+    background-color: #757f9a;
+    transition: 0.3s;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+
+#hamburger-menu ul {
+  padding-left: 0px;
+}
+
+#hamburger-menu li {
+  list-style-type: none;
+  line-height: 3rem;
+}
+
+#hamburger-menu a {
+  color: white;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+#hamburger-menu a:hover {
+  text-decoration: underline;
+}
+
+#hamburger-input:checked + #hamburger-menu #sidebar-menu {
+    visibility: visible;
+    left: 0;
+}
+#hamburger-input:checked ~ .overlay{
+   visibility: visible;
+  opacity: 0.4;
+}
+  #main-menu {
+    display: none;
+  }
+  #hamburger-menu {
+    display: inline;
+  }
+ .pdf{
+    display: block;
+    width: 12%;
+    height: 3%;
+    background: black;
+    padding: 10px;
+    text-align: center;
+    border-radius: 36px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+ }
+
+@media only screen and (max-width: 600px) {
+		#hamburger-menu #sidebar-menu {
+            margin-left:60%;
+            width: 40%;
+}
+}
+
+/*Responsive*/
+@media only screen and (max-width: 767px) {
+		#hamburger-menu #sidebar-menu {
+            margin-left:60%;
+            width: 40%;
+}
+}
+
+
+@media only screen and (max-width: 1100px) {
+    #hamburger-menu #sidebar-menu {
+            margin-left:60%;
+            width: 40%;
+}
+    .pdf {
+    width: 40%;
+}
+     .pdf_h1{
+    margin-left:17% !important;
+     }
+}
+        
     </style>
 </head>
 <body>
-	<header>
-        <div class="container">
-            <nav>
-                <div class="nav-brand">
-                </div>
-                <ul class="nav-list">                 
-                    <li class="nav-item">
-                        <a href="#" class="nav-link current">Početna</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="skola.html" class="nav-link">škola za pse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Kontakt</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        <!-- Hamburger menu-->       
+<nav id="main-menu">
+ 
+</nav>
+
+<input type="checkbox" id="hamburger-input" class="burger-shower" />
+<label id="hamburger-menu" for="hamburger-input">
+  <nav id="sidebar-menu">
+    <ul>
+      <li><a href="index.html">Main page</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="gallery.php">Gallery</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="login.php">Login</a></li>
+      <li><a href="login_judge.php">Judges login</a></li>
+    </ul>
+  </nav>
+</label>
+
+
+<div class="overlay"></div>
 	<main>
         <section class="company">
             <div class="container">
@@ -73,63 +208,41 @@
                
                 <div class="activites-grid">
                     <div class="activites-grid-item">                      
-                            <h1>Nature’s Specialties</h1>
-                            <p>Linija šampona za oatromaterapiju Nature Specialties dodatni je
-							korak u ugađanju našim dlakavim prijateljma. Aromaterapija u kombinaciji
-							s formulom za čišćenje koja ima antibakterijska i antifungalna svojstva.
-							Vraća sjaj i vraća zdravlje kaputu kućnih ljubimaca, istovremeno ublažavajući stres.
-							Sadrži: netoksičnu, biorazgradivu mješavinu u vlasničkoj bazi blage šampona, 
-							aloe vere, pantenola, vitamina A, D i  E,mirisa. pH uravnotežen</p>                        
+                            <h1>A Dog’s New Year’s Resolutions for 2022</h1>
+                            <p>This is going to be the year I become a genuinely good dog. I’ve made New Year’s resolutions before, but I’m going to stick to them this time. My humans deserve a properly behaved Canine Good Citizen. After all, they spoil me with fresh water in the toilet bowl and a soft Queen-sized bed for napping. It’s not fair that I dig holes in the yard and chew the sofa. If they can make resolutions, then I can turn over a new bone too.</p>                        
                     </div>             
                 <div class="activites-grid-item">                
-                    <h1>Ultra guard plus</h1>
-                    <p>Ogrlica je natopljena prirodnom mješavinom dobivenom iz eteričnih ulja bilja i drveća.
-					Sastav: ulje geranija (Pelargonium Graveolens) 1%, ulje klinčića (Eugenia Caryophyllata) 1%,
-					ulje limunske trave (Cymbopogon Flexuosus) 1%, ulje citronele (Cymbopogon Nardus) 0,5%, ulje
-					ružmarina (Rosmarius officinalis) 0,5%, ricinusovo ulje (Ricinus Communis (castor) 1 %.
-					Tretman sprječava infestaciju buhama tijekom mjesec dana. </p>               
+                    <h1>Show Your Dog How Much You Love Him</h1>
+                    <p>Everyday with your dog is a great day. And we show our dogs we love them everyday when we feed them, play with them, even just take them outside for a walk. But on National Love Your Pet Day, you might want to find an extra special way to show your canine companion just how much you care. My humans deserve a properly behaved Canine Good Citizen.  </p>               
                 </div>    
                 <div class="activites-grid-item">
-                        <h1>Angels ’Eyes</h1>
-                        <p>Puder za sprječavanje mrlja od suza. Za sve pasmine: Formula protiv mrlja od suza bez antibiotika koja daje bistru dlaku
-						za sve pasmine. Značajno: Ne sadrži boju za hranu, pšenicu, kukuruz ili soju koje bi 
-						mogle imati negativne učinke na vašeg ljubimca. Sastav: prašak brusnice, korijen grožđa 
-						Oregon i korijen bijelog šljeza. Ukus: Aromatiziran 100% liofiliziranom pilećom jetrom
-						Formula: s prirodnim antioksidansima. Vašem psu daje neodoljiv izgled. </p>
+                        <h1>Ignore the Mail Carrier</h1>
+                        <p>It’s not my fault that pesky mail carrier invades my territory every day. You would think my humans would appreciate my warning barks. After all, every time I bark at the mail carrier, it chases them away. That kind of power is hard to resist! But I’m supposed to silently accept the intruder. That would be a lot easier if my humans distracted me with a puzzle toy or food-stuffed chew toy.  </p>
                     </div>    
                 </div>
             </div>
-			
-		        </section><br>	
+            <div style="margin-top: 5%;">
+            <h1 class="pdf_h1" style="margin-right: 10%; margin-left: 24%; font-family: 'Aldrich', sans-serif; font-size: 2em;
+">PLEASE CHECK OUR CATALOGUE FOR MORE INFORMATIONS ABOUT PRODUCTS</h1>
+                    <a href="catalogue.pdf" class="pdf" target="_blank">Read more</a>
+                    </div>
+		        </section>	
 				
                 <section class="experience-outdoors">
                     <div class="container">
                        
                         <div class="activites-grid">
                             <div class="activites-grid-item">                      
-                                    <h1>Nature’s Specialties</h1>
-                                    <p>Linija šampona za oatromaterapiju Nature Specialties dodatni je
-                                    korak u ugađanju našim dlakavim prijateljma. Aromaterapija u kombinaciji
-                                    s formulom za čišćenje koja ima antibakterijska i antifungalna svojstva.
-                                    Vraća sjaj i vraća zdravlje kaputu kućnih ljubimaca, istovremeno ublažavajući stres.
-                                    Sadrži: netoksičnu, biorazgradivu mješavinu u vlasničkoj bazi blage šampona, 
-                                    aloe vere, pantenola, vitamina A, D i  E,mirisa. pH uravnotežen</p>                        
+                                    <h1>Stop Digging in the Yard</h1>
+                                    <p>Digging in the yard is as much a part of my personality as tail wagging. So, why do my humans think their grass and garden are more important than following my bliss? Plus, where else am I supposed to hide my bones? If they really want me to stop, they should redirect me with a toy or game every time I try to dig. And don’t leave me alone in the yard to make my own fun. But my favorite solution is a special digging spot baited with rubber toys and bones. </p>                        
                             </div>             
                         <div class="activites-grid-item">                
-                            <h1>Ultra guard plus</h1>
-                            <p>Ogrlica je natopljena prirodnom mješavinom dobivenom iz eteričnih ulja bilja i drveća.
-                            Sastav: ulje geranija (Pelargonium Graveolens) 1%, ulje klinčića (Eugenia Caryophyllata) 1%,
-                            ulje limunske trave (Cymbopogon Flexuosus) 1%, ulje citronele (Cymbopogon Nardus) 0,5%, ulje
-                            ružmarina (Rosmarius officinalis) 0,5%, ricinusovo ulje (Ricinus Communis (castor) 1 %.
-                            Tretman sprječava infestaciju buhama tijekom mjesec dana. </p>               
+                            <h1>Stop Begging for Food</h1>
+                            <p>The litter box is like a buffet table of delicious morsels of cat poop. But for some reason, when I sample the little delicacies, it grosses out my humans. I wish they understood that poop eating, or coprophagia as the vet calls it, is totally normal for dogs. We evolved as scavengers and enjoy eating anything with a strong smell. For this resolution to stick, I need my humans to block my access to the box either with baby gates or a covered/top-entry litter box.  </p>               
                         </div>    
                         <div class="activites-grid-item">
-                                <h1>Angels ’Eyes</h1>
-                                <p>Puder za sprječavanje mrlja od suza. Za sve pasmine: Formula protiv mrlja od suza bez antibiotika koja daje bistru dlaku
-                                za sve pasmine. Značajno: Ne sadrži boju za hranu, pšenicu, kukuruz ili soju koje bi 
-                                mogle imati negativne učinke na vašeg ljubimca. Sastav: prašak brusnice, korijen grožđa 
-                                Oregon i korijen bijelog šljeza. Ukus: Aromatiziran 100% liofiliziranom pilećom jetrom
-                                Formula: s prirodnim antioksidansima. Vašem psu daje neodoljiv izgled. </p>
+                                <h1>Chew My Toys Instead of the Furniture</h1>
+                                <p>My humans can’t resist my puppy-dog eyes when I beg from the table. If I stare at them long enough, a tidbit of their dinner finds its way to my mouth. My humans deserve a properly behaved Canine Good Citizen. And that encourages me to beg again at the next meal. If my humans really want me to give up begging, they should feed me first. Or teach me to go to my place while they eat. </p>
                             </div>    
                         </div>
                     </div>
@@ -143,29 +256,16 @@
                                
                                 <div class="activites-grid">
                                     <div class="activites-grid-item">                      
-                                            <h1>Nature’s Specialties</h1>
-                                            <p>Linija šampona za oatromaterapiju Nature Specialties dodatni je
-                                            korak u ugađanju našim dlakavim prijateljma. Aromaterapija u kombinaciji
-                                            s formulom za čišćenje koja ima antibakterijska i antifungalna svojstva.
-                                            Vraća sjaj i vraća zdravlje kaputu kućnih ljubimaca, istovremeno ublažavajući stres.
-                                            Sadrži: netoksičnu, biorazgradivu mješavinu u vlasničkoj bazi blage šampona, 
-                                            aloe vere, pantenola, vitamina A, D i  E,mirisa. pH uravnotežen</p>                        
+                                            <h1>Stop Herding the Kids</h1>
+                                            <p>Since I don’t have access to sheep, I express my instincts by herding the kids. It taps into my predatory heritage, and like all dogs in the Herding Group, controlling the movement of others is one of my strongest skills. But my humans wish I’d find another hobby. If only they understood that moving objects are tough to resist. Teaching me impulse control and the “watch me” and “leave it” cues would help. </p>                        
                                     </div>             
                                 <div class="activites-grid-item">                
-                                    <h1>Ultra guard plus</h1>
-                                    <p>Ogrlica je natopljena prirodnom mješavinom dobivenom iz eteričnih ulja bilja i drveća.
-                                    Sastav: ulje geranija (Pelargonium Graveolens) 1%, ulje klinčića (Eugenia Caryophyllata) 1%,
-                                    ulje limunske trave (Cymbopogon Flexuosus) 1%, ulje citronele (Cymbopogon Nardus) 0,5%, ulje
-                                    ružmarina (Rosmarius officinalis) 0,5%, ricinusovo ulje (Ricinus Communis (castor) 1 %.
-                                    Tretman sprječava infestaciju buhama tijekom mjesec dana. </p>               
+                                    <h1>Stop Rolling in Smelly Stuff</h1>
+                                    <p>I want to smell like a dog – the stinkier the better! That’s why I roll in glorious piles of reeking stuff, like poop or dead animals. And it’s all the better for sneaking up on prey or sharing information about my environment with my pack. However, even with their second-rate noses, my humans want to keep me smelling like dog shampoo.  </p>               
                                 </div>    
                                 <div class="activites-grid-item">
-                                        <h1>Angels ’Eyes</h1>
-                                        <p>Puder za sprječavanje mrlja od suza. Za sve pasmine: Formula protiv mrlja od suza bez antibiotika koja daje bistru dlaku
-                                        za sve pasmine. Značajno: Ne sadrži boju za hranu, pšenicu, kukuruz ili soju koje bi 
-                                        mogle imati negativne učinke na vašeg ljubimca. Sastav: prašak brusnice, korijen grožđa 
-                                        Oregon i korijen bijelog šljeza. Ukus: Aromatiziran 100% liofiliziranom pilećom jetrom
-                                        Formula: s prirodnim antioksidansima. Vašem psu daje neodoljiv izgled. </p>
+                                        <h1>Stop Chasing Squirrels</h1>
+                                        <p>There’s nothing I like better than chasing squirrels because their speed and movement trigger my predatory instincts. Plus, it’s so rewarding when they play with me. But my humans would rather I ignore my furry friends and focus on them instead. I’ll try, but if they taught me to handle distractions it would go a long way. They could also reward me for watching them instead of the environment.  </p>
                                     </div>    
                                 </div>
                             </div>
@@ -177,7 +277,7 @@
             <div class="container">
                 <div class="testimonial">
                     <div class="testimonial-text-box">
-                        <p>PROIZVODI ZA ŠAPE SA STILOM!</p>
+                        <p>WE PAWS YOU</p>
                     </div>				
                 </div>
             </div>
@@ -185,11 +285,12 @@
 
         <section class="begin-adveture">
             <div class="container5">  
-                <div style="height: 50px;" class="title-heading2">                  
-                    <h1>neka njihove avanture započnu sa nama</h1>                   
+                <div class="title-heading2">                  
+                    <h1>The results of the competition will be published on June 19, 2022. at 15:00</h1>                   
                 </div>             
             </div>
         </section>
+      
     </main>	
 	<br>
     <footer>
@@ -202,7 +303,7 @@
             <a href="https://twitter.com/Best__dog"><img src="images/twitter.png" style="width:42px;height:42px;"></a>
           </ul>
           <p>Coppyright © 2022 Best-dog, Inc.</p>
-          <a href="privacy.html">Legal Stuff </a><br>
+          <a href="terms.html">Legal Stuff </a><br>
           <a href="privacy.html">Privacy Policy</a>
           </div>
       </footer>

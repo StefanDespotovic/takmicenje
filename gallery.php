@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, intial-scale=1.0"/>
+<link rel="icon" href="images/logo.png">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/navbar.css">
 <link rel="stylesheet" href="css/main.css">
@@ -199,6 +201,7 @@
         <header>        
             <a href="index.html" id="logo" class="logo">BEST-DOG</a>
         </header>
+<!-- Hamburger menu-->       
 <nav id="main-menu">
  
 </nav>
@@ -207,7 +210,7 @@
 <label id="hamburger-menu" for="hamburger-input">
   <nav id="sidebar-menu">
     <ul>
-      <li><a href="main.html">Main page</a></li>
+      <li><a href="index.html">Main page</a></li>
       <li><a href="news.html">News</a></li>
       <li><a href="gallery.php">Gallery</a></li>
       <li><a href="results.html">Results</a></li>
@@ -219,7 +222,7 @@
 
 
 <div class="overlay"></div>
-        
+<!-- div that contains competitors photos and informations-->            
 	<div class="container main">
 		<h3>All competitors and their informations</h3>
 		<div class="img-box">
@@ -240,7 +243,7 @@
 		$year = $rows['year'];
         $imageURL = 'uploads/'.$rows["file_name"];
 	?>
-	
+	<!-- displaying competitors picture and informations-->    
 	<div class="img-block">
 	<img src="<?php echo $imageURL; ?>" alt="" title="<?php echo $dog_name; ?>" class="img-responsive" />
 	<p style="margin-top:10px;"><strong>Dog name:&nbsp</strong><?php echo $dog_name?>
