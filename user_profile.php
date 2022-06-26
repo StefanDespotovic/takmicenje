@@ -35,7 +35,7 @@ html, body {
 	min-height: 480px;
 	z-index: -1;
 }
-h3{
+.welcome{
     margin-left:10%;
     width:80%;
     background: -webkit-gradient(linear, right top, left top, from(#757f9a), to(#d7dde8)); 
@@ -66,7 +66,7 @@ p{
 /*Hamburger menu */
 
 .overlay{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -153,6 +153,11 @@ p{
 
 @media only screen and (max-width: 600px) {
     .img-block{
+		    width: 100%;
+		    float: left;
+		    margin-right: 5px; 
+		    text-align: center;
+		}
 		#hamburger-menu #sidebar-menu {
             margin-left:60%;
             width: 40%;
@@ -161,6 +166,12 @@ p{
 
 /*Responsive*/
 @media only screen and (max-width: 767px) {
+    .img-block{
+		    width: 100%;
+		    float: left;
+		    margin-right: 5px; 
+		    text-align: center;
+		}
 		#hamburger-menu #sidebar-menu {
             margin-left:60%;
             width: 40%;
@@ -169,12 +180,18 @@ p{
 
 
 @media only screen and (max-width: 1100px) {
+    .img-block{
+		    width: 100%;
+		    float: left;
+		    margin-right: 5px; 
+		    text-align: center;
+		}
+		
     #hamburger-menu #sidebar-menu {
             margin-left:60%;
             width: 40%;
-}
-}
 
+}}
     </style>
 
 </head>
@@ -184,7 +201,8 @@ p{
         <header>        
             <a href="index.html" id="logo" class="logo">BEST-DOG</a>
         </header>
-        <nav id="main-menu">
+<!-- Hamburger menu-->       
+<nav id="main-menu">
  
 </nav>
 
@@ -194,13 +212,14 @@ p{
     <ul>
       <li><a href="index.html">Main page</a></li>
       <li><a href="news.html">News</a></li>
-      <li><a href="login.php">Login</a></li>
-      <li><a href="login_judge.php">Login judges</a></li>
       <li><a href="gallery.php">Gallery</a></li>
       <li><a href="results.html">Results</a></li>
+      <li><a href="login.php">Login</a></li>
+      <li><a href="login_judge.php">Judges login</a></li>
     </ul>
   </nav>
 </label>
+
 
 <div class="overlay"></div>
         <section>
@@ -215,7 +234,7 @@ p{
 //display data from db from user id that is logged
 $user = $_SESSION['name'];
 
-echo "<h3>Welcome $user</h3>";
+echo "<h2>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspWelcome $user</h2>";
 
     if ($result->num_rows > 0) {
     // output data of each row
